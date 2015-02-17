@@ -1,0 +1,163 @@
+Montijoy API Document
+* means required field
+all responses in application/json format
+Base url: http://montijoy.herokuapp.com
+
+1. user registration
+POST /users
+*registration[username]
+*registration[email]
+*registration[password]
+registration[gender]
+registration[age]
+
+Response: 201 Created if success
+		  422 if errors occur
+Response Example:
+
+{"user":{"id":7,"username":"xyz","email":"abc@bac.com","profile_pic_url":null,"authentication_token":"x_yaTAxdUXzBMj5joNHu"}}
+
+2. user signin
+POST /users/sign_in
+both username and email could be used for signin.
+*email or username
+*password
+
+Response: 200 OK if successfully logged in
+		  404 if user not found
+		  401 if password not valid
+Response Example:
+
+{"user":{"id":7,"username":"xyz","email":"abc@bac.com","profile_pic_url":null,"authentication_token":"x_yaTAxdUXzBMj5joNHu"}}
+
+3. user signout
+DELETE /users/sign_out
+*user_email
+*user_token
+
+Response: 200 OK if successfully logged out
+		  401 if auth token not valid
+Response Example:
+{"info":"Logged out."}
+
+4. avatar upload
+
+Uploads an avatar after user's account has been created.
+
+POST /users/:id/upload_profile_photo
+*user_email
+*user_token
+*profile_pic
+
+Response: 200 OK if successfully uploaded
+		  422 if errors occur
+
+Response Example: { "profile_pic_url": "http://someurl.com/pic.png" }
+
+5. clothing item creation
+
+Creates a clothing item with picture taken by user and name of the city user is located in.
+
+POST /clothing_items
+*user_email
+*user_token
+*clothing_photo
+*city
+
+Response: 201 Created if success
+		  422 if errors occur
+Response Example:
+
+{"clothing_item":{"id":3,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-production/clothing_items/clothing_photos/000/000/003/original/pic.png?1413115713"}}
+
+6. tags association for a clothing item
+
+POST /clothing_items/:id/add_tags
+*user_email
+*user_token
+*clothing_item[tags] (array)
+
+Sample request:
+curl -H "Content-Type: application/json" -d '{"user_email": "abc@bac.com","user_token": "K8izTFW6Qispg-cos5yT","clothing_item":{"tags":["mens_only", "custom"]}}' http://localhost:3000/clothing_items/1/add_tags
+
+Response: 200 OK if tags added successfully
+		  422 if errors occur
+Response Example:
+
+{"info":"Tags successfully added"}
+
+
+7. most popular tags
+Returns top X tags used by user to tag clothing items.
+
+GET /most_popular_tags
+*user_email
+*user_token
+*top
+
+Response: 200 OK if success
+		  422 if top param doesnt exist
+
+Response Example:
+{"tags":[{"id":2,"name":"QQ","used_count":0},{"id":3,"name":"wedding","used_count":3},{"id":1,"name":"mens_only","used_count":3},{"id":4,"name":"trendy","used_count":3},{"id":5,"name":"cowboy","used_count":3}]}
+
+8. all clothing items in a specific city
+
+GET /clothing_items
+*user_email
+*user_token
+city
+
+if city is nil, all existing clothing items will be returned.
+
+Response: 200 OK if success
+		  404 if city name not found
+
+Response Example:
+
+{"clothing_items":[{"id":1,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-development/clothing_items/clothing_photos/000/000/001/original/pic.png?1413299192"},{"id":2,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-development/clothing_items/clothing_photos/000/000/002/original/pic.png?1413303687"}]}
+
+9. one specific clothing item
+returns id, clothing photo url and all associated tags.
+
+GET /clothing_items/:id
+*user_email
+*user_token
+
+Response: 200 OK if success
+		  404 if clothing item id not found
+
+Response Example:
+
+{"clothing_item":{"id":1,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-development/clothing_items/clothing_photos/000/000/001/original/pic.png?1413299192","tags":[{"name":"mens_only"},{"name":"mens_only"},{"name":"custom"},{"name":"custom"}]}}
+
+10. rate a specific clothing item
+returns id, clothing item id, and liked.
+
+POST /ratings
+
+*user_email
+*user_token
+*rating[clothing_item_id]
+*rating[liked] //boolean value
+
+Response: 201 OK if rated successfully
+		  422 if clothing item has been rated by this user
+
+Response Example:
+{"id":5,"user_id":2,"clothing_item_id":2,"liked":false,"created_at":"2014-12-08T02:49:57.554Z","updated_at":"2014-12-08T02:49:57.554Z"}
+
+11. get new clothing item candidates for rating
+returns an array of clothing items
+
+GET /clothing_items/get_new_candidates
+
+*user_email
+*user_token
+city
+batch //number of clothing items to be returned, 6 if no value passed
+
+Response: 200 OK
+
+Response Example:
+{"clothing_items":[{"id":2,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-development/clothing_items/clothing_photos/000/000/002/original/pic.png?1413303687"},{"id":1,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-development/clothing_items/clothing_photos/000/000/001/original/pic.png?1413299192"}]}
