@@ -1,0 +1,23 @@
+.slide-one {
+	background-color: white;
+}
+
+.slide-two {
+	background-color: #FBC600;
+}
+
+.slide-three {
+	background-color: #FBC600;
+}
+
+.slide-four {background-color: #FBC600;}
+
+.slide-five {background-color: white;}
+
+.slide-one-black {font-size: 46px;}
+.slide-one-small {font-size: 36px;}
+.slide-three-white-big {font-size: 60px; color: white;}
+.slide-four-white-small {font-size: 40px; color: white;}
+
+
+.slide-align-middle {text-align: center;}
