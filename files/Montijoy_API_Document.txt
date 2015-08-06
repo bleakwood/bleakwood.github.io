@@ -161,3 +161,27 @@ Response: 200 OK
 
 Response Example:
 {"clothing_items":[{"id":2,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-development/clothing_items/clothing_photos/000/000/002/original/pic.png?1413303687"},{"id":1,"clothing_photo_url":"http://s3.amazonaws.com/montijoy-development/clothing_items/clothing_photos/000/000/001/original/pic.png?1413299192"}]}
+
+12. create a channel
+
+POST /channels
+
+*user_email
+*user_token
+*cover // cover image for the channel
+*name
+
+Response: 201 Created
+Response Example:
+{"id":2,"name":"Watches","cover_file_name":"pic.png","cover_content_type":"image/png","cover_file_size":321902,"cover_updated_at":"2015-08-06T14:06:30.021Z","created_at":"2015-08-06T14:06:30.080Z","updated_at":"2015-08-06T14:06:30.080Z"}
+
+13. get clothing items from a channel
+
+GET /channels/:id/clothing_items
+
+*user_email
+*user_token
+
+Response: 200 OK
+Response Example:
+{"clothing_items":[{"id":6,"clothing_photo_url":"localhost/clothing_items/clothing_photos/000/000/006/original/1.pic_hd.jpg?1438733521"}]}
