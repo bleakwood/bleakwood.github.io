@@ -1,4 +1,13 @@
-On Writing Well
+---
+layout: post
+title: "On Writing Well"
+date: 2015-12-22 12:06:00 +08:00
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+---
 
 最近在读的另外一本书 —— On Writing Well —— 亦让我颇有启发。本书的作者在很多名校教过 Writing Workshop，深知写作的各种难处。他并没有写一本类似经典 The Element of Style 的写作手册，来讲解语法，句式等等，也觉得 The Element of Style 在这一方面无法超越。他决定写一本书作为 The Element of Style 的补充 —— 不讲最基本的“怎么写”的原则，转而讲在各种各样的使用场景下怎么写作。我觉得非常非常受启发的一章，是讲 Business Writing 的这一章。这一章在说他给一些校长开了一个 workshop，教他们写给家长的 newsletter。首先写 newsletter 当然不能算一件很难的事情，只需要把最近学校的进展列出来，然后告诉家长们他们需要对自己的孩子做什么就好了。但实际上，校长们是这么写的：
 
@@ -23,7 +32,7 @@ On Writing Well
 
 这里还有另一个例子，我们在用一个在线的表格搜集老师的姓名、学校地址等等信息，这个表格有一个设置，是可以在填表的时候顺便拿到填写人的微信昵称、性别、所在地，然后这个设置是这么说的：
 
-![Alt text](/Users/jinruwu/Desktop/jinshuju-settings.png)
+![Alt text](/../images/jinshuju-settings.png)
 
 读完这段话以后，你有没有明白，收集还是不收集这些信息有什么区别？区别可能在“极大的丰富您的数据真实性”，那么到底什么叫“极大的丰富您的数据真实性”？我能更加了解填表人的什么情况？IT是我的领域，所以我能明白个中的区别，但我相信相当数量的人都需要去找到一个能明白这句话的人来给他翻译。翻译过的话如下：
 > 开启这个选项，在填表的时候我们会收集填写人的微信昵称、性别、头像、所在地，所以您会知道这是一个真实的微信用户在填写。
