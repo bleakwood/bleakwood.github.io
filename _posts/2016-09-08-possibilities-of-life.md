@@ -12,8 +12,11 @@ published: true
 作为一个经常被迫远程工作的团队，[Cadence](https://www.talkbusinessanywhere.com)最主要的沟通工具是slack。上面有一个频道叫做#travel_calendar。我今天打开想看看这一年里我都去了些什么地方——
 
 Feb 2 - 22 Uganda
+
 3/11 - 3/14 云南昭通镇雄
+
 7/20 - 8/18 Cambodia
+
 8/18 - 8/21 Hong Kong
 
 中间还包括我因为在柬埔寨待得太久，来不及办签证而错过的一趟日本之行。
