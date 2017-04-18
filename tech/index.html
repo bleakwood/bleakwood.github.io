@@ -9,11 +9,6 @@ layout: default
 		    	{% for tag in post.tags %}
 		    		<span class="post-meta">{{ tag }}</span>
 		    	{% endfor %}
-		      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-		      <h2>
-		        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-		      </h2>
 		    </li>
 		  {% endif %}
     {% endfor %}
