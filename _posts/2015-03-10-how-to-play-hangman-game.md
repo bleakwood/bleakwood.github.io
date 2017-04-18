@@ -3,7 +3,7 @@ layout: post
 title: "How to play a Hangman game(programatically)"
 date: 2015-03-10 21:57:02 +08:00
 categories: []
-tags: ["tech"]
+tags: [tech]
 status: publish
 type: post
 published: true
