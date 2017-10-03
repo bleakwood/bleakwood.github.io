@@ -119,6 +119,15 @@ footer {
 	vertical-align: middle;
 	background-repeat: no-repeat;
 }
+
+.expensestablestyle {
+    border-collapse: collapse;
+
+    > table, td, th {
+        border: 1px solid black;
+    }
+}
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
